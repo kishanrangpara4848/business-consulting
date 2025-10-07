@@ -1,0 +1,101 @@
+@use "variable" as var;
+
+@mixin container{
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 100%;
+	float: left;
+}
+
+@mixin row{
+	max-width: 1445px;
+	margin: 0 auto;
+}
+
+@mixin table{	
+    table-layout: fixed;
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin table-cell{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+@mixin pd{
+	padding-top: 110px;
+	padding-bottom: 110px;
+}
+
+@mixin mg{
+	margin-top: 110px;
+	margin-bottom: 110px;
+}
+
+@mixin mrg{
+	margin: 0 -20px;
+}
+
+@mixin box{
+	width: 33.33%;
+	float: left;
+	padding: 0 20px;
+}
+
+@mixin d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+@mixin hf{
+	font-size: 14px;
+	line-height: 18px;
+}
+@mixin ht{
+	font-size: 16px;
+	line-height: 18px;
+}
+@mixin pf{
+	font-size: 20px;
+	line-height: 22px;
+}
+@mixin sixty{
+	font-size: 60px;
+	line-height: 65px;
+}
+
+
+/* Breakpoint sizes */
+$screen-xss-max: 479px;
+$screen-xs-max: 639px;
+$screen-sm-max: 767px;
+$screen-md-max: 979px;
+$screen-lg-max: 1024px;
+$screen-xl-max: 1320px;
+
+
+/* Create the mixin (usually in a separate .scss file) */
+@mixin breakpoint($media) {
+  @if $media == xss {
+    @media only screen and (max-width: $screen-xss-max) { @content; }
+  }
+   @else if $media == xs {
+    @media only screen and (max-width: $screen-xs-max) { @content; }
+  }
+  @else if $media == sm {
+    @media only screen and (max-width: $screen-sm-max) { @content; }
+  }
+  @else if $media == md {
+    @media only screen and (max-width: $screen-md-max) { @content; }
+  }
+  @else if $media == lg {
+    @media only screen and (max-width: $screen-lg-max) { @content; }
+  }
+   @else if $media == xl {
+    @media only screen and (max-width: $screen-xl-max) { @content; }
+  }
+}
